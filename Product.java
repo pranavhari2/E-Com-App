@@ -2,20 +2,21 @@ public class Product {
 
     private final String name;
     private final double price;
-    private final String id;
+    private final int id;
 
 
-    public Product(String name, double price, String id){
+    public Product(String name, double price, int id){
         this.id = id;
         this.price = price;
         this.name = name;
     }
 
+
     public double getPrice() {
         return this.price;
     }
 
-    public String getId() {
+    public int getID() {
         return this.id;
     }
 
