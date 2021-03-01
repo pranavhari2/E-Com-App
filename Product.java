@@ -1,3 +1,9 @@
+/*
+   Authors:
+   Pranav K. Hari, 101144482
+   Sahil Agrawal, 101132393
+ */
+
 public class Product {
 
     private final String name;

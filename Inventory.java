@@ -1,3 +1,9 @@
+/*
+   Authors:
+   Pranav K. Hari, 101144482
+   Sahil Agrawal, 101132393
+ */
+
 import java.util.ArrayList;
 
 public class Inventory {
@@ -6,6 +12,17 @@ public class Inventory {
 
     public Inventory () {
 
+       Product product1 = new Product("Apple",5.00,1);
+       Product product2 = new Product("Chocolate",2.00,2) ;
+       Product product3 = new Product("Cheerios",8.00,3) ;
+
+       products.add(0,product1);
+       products.add(1,product2);
+       products.add(2,product3);
+
+       this.stock[0] = 1;
+       this.stock[1] = 2;
+       this.stock[2] = 3;
     }
 
     /**
@@ -21,7 +38,7 @@ public class Inventory {
     /**
      * Retrives the product given the product ID.
      *
-     * @param id Product id to be checked 
+     * @param id Product id to be checked
      * @return Product Product with the same ID.
      */
 
@@ -76,7 +93,7 @@ public class Inventory {
      */
 
     public void removeStock (Product product, int stock) {
-        for (int i = 0; i <= products.size(); i++) {
+        for (int i = 0; i < products.size(); i++) {
             if (products.get(i).equals(product)) {
                 if (this.stock[i] - stock < 0){
                     this.stock[i] = 0;
