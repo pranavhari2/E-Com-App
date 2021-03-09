@@ -1,8 +1,8 @@
-/*
-   Authors:
-   Pranav K. Hari, 101144482
-   Sahil Agrawal, 101132393
+/**
+ @author Pranav K. Hari, 101144482
+ @author Sahil Agrawal, 101132393
  */
+
 
 public class Product {
 

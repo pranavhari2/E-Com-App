@@ -1,4 +1,11 @@
+
 import java.util.ArrayList;
+
+/**
+ @author Pranav K. Hari, 101144482
+ @author Sahil Agrawal, 101132393
+ */
+
 
 public class ShoppingCart {
 
@@ -18,7 +25,7 @@ public class ShoppingCart {
      */
 
     public Product getProduct (int id) {
-        for (int i = 0; i <= products.size(); i++) {
+        for (int i = 0; i < products.size(); i++) {
             if (products.get(i).getID() == id) {
                 return products.get(i);
             }
@@ -33,13 +40,31 @@ public class ShoppingCart {
      * @return int Returns stock of specified item id
      */
 
-    public int getStock (int id) {
-        for (int i = 0; i <= products.size(); i++) {
+    public int getQuantity (int id) {
+        for (int i = 0; i < products.size(); i++) {
             if (products.get(i).getID() == id) {
                 return quantity.get(i);
             }
         }
         return 0;
+    }
+
+    /**
+     * Return the List of Products in the shopping cart
+     *
+     * @return products, ArrayList<String>
+     */
+    public ArrayList<Product> getProducts() {
+        return products;
+    }
+
+    /**
+     * Return the List of quantites/stock of each product in the shopping cart
+     *
+     * @return quantity, ArrayList<Integer>
+     */
+    public ArrayList<Integer> getQuantity() {
+        return quantity;
     }
 
     /**
@@ -49,14 +74,14 @@ public class ShoppingCart {
      * @param stock  Amount of product to add
      */
 
-    public void addStock (Product product, int stock) {
-        for (int i = 0; i <= products.size(); i++) {
+    public void addToCart (Product product, int stock) {
+        for (int i = 0; i < products.size(); i++) {
             if (products.get(i).equals(product)) {
-                this.quantity.set(i,this.quantity.get(i)+ stock);
+                this.quantity.set(i,this.quantity.get(i)+stock);    // Increases quantity if duplicate
             }
         }
         products.add(product);
-        this.quantity.set(products.size()-1,this.quantity.get(products.size()-1) + stock);
+        quantity.add(stock);
     }
 
     /**
@@ -67,7 +92,7 @@ public class ShoppingCart {
      * @param stock  Amount of product to remove
      */
 
-    public void removeStock (Product product, int stock) {
+    public void removeFromCart (Product product, int stock) {
         for (int i = 0; i < products.size(); i++) {
             if (products.get(i).equals(product)) {
                 if (this.quantity.get(i) - stock < 0){
@@ -77,6 +102,17 @@ public class ShoppingCart {
                     this.quantity.set(i, this.quantity.get(i)-stock);
                 }
             }
+        }
+    }
+
+    /**
+     * Prints the user's cart
+     */
+    public void printCart(){
+        System.out.print("Your Cart ---> \n");
+        System.out.print("Product Name | Unit Price | Amount\n");
+        for (int i =0; i<products.size(); i++){
+            System.out.print(products.get(i).getName() + " | " + products.get(i).getPrice() + " | " + quantity.get(i)+"\n");
         }
     }
 }
